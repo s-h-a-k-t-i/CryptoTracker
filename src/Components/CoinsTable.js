@@ -59,7 +59,6 @@ const CoinsTable = () => {
   const fetchCoins = async () => {
     setLoading(true);
     const { data } = await axios.get(CoinList(currency));
-    console.log(data);
 
     setCoins(data);
     setLoading(false);
@@ -90,11 +89,12 @@ const CoinsTable = () => {
         >
           Cryptocurrency Prices by Market Cap
         </Typography>
+
         <TextField
           label="Search For a Crypto Currency..."
           variant="outlined"
           style={{ marginBottom: 20, width: "100%" }}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => setSearch(e.target.value.toLowerCase())}
         />
 
         <TableContainer>
@@ -112,7 +112,7 @@ const CoinsTable = () => {
                         fontFamily: "Montserrat",
                       }}
                       key={head}
-                      align={head === "Coin" ? "" : "right"}
+                      align={head === "Coin" ? "left" : "right"}
                     >
                       {head}
                     </TableCell>
@@ -190,7 +190,7 @@ const CoinsTable = () => {
           )}
         </TableContainer>
         <Pagination
-          count={(handleSearch()?.length / 10).toFixed(0)}
+          count={parseInt((handleSearch()?.length / 10).toFixed(0), 10)}
           style={{
             padding: 20,
             width: "100%",

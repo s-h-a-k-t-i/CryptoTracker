@@ -3,9 +3,12 @@ import React from "react";
 import Carousel from "./Carousel";
 
 const useStyles = makeStyles(() => ({
+  // banner: {
+  //   backgroundImage:
+  //     "url(https://www.transparenttextures.com/patterns/cubes.png)",
+  // },
   banner: {
-    backgroundImage:
-      "url(https://www.transparenttextures.com/patterns/cubes.png)",
+    backgroundImage: "url(./banner.jpg)",
   },
   bannerContent: {
     height: 400,
@@ -42,7 +45,6 @@ const Banner = () => {
           <Typography
             variant="subtitle2"
             style={{
-              color: "darkgrey",
               textTransform: "capitalize",
               fontFamily: "Montserrat",
             }}
